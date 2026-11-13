@@ -157,4 +157,31 @@ public class BazaTest {
                 ()-> baza.agregarJugada(new Jugada(new Jugador("Pedro"), new Carta(Palo.TREBOLES, Valor.TRES))));
         assertEquals(4, baza.getJugadas().size());
     }
+
+    @Test
+    void unaBazaVaciaNoTieneCorazones(){
+        Baza baza = new Baza();
+        assertFalse(baza.tieneCorazones());
+    }
+
+    @Test
+    void unaBazaConUnCorazonTieneCorazones(){
+        Baza baza = new Baza();
+        baza.agregarJugada(new Jugada(new Jugador("Juan"), new Carta(Palo.CORAZONES, Valor.CINCO)));
+        assertTrue(baza.tieneCorazones());
+    }
+
+    @Test
+    void unaBazaSinCorazonesNoTieneCorazones(){
+        Baza baza = new Baza();
+        baza.agregarJugada(new Jugada(new Jugador("Juan"), new Carta(Palo.PICAS, Valor.CINCO)));
+        assertFalse(baza.tieneCorazones());
+    }
+
+    @Test
+    void unaBazaConLaDamaDePicasSinCorazonesNoTieneCorazones() {
+        Baza baza = new Baza();
+        baza.agregarJugada(new Jugada(new Jugador("Juan"), new Carta(Palo.PICAS, Valor.Q)));
+        assertFalse(baza.tieneCorazones());
+    }
 }

@@ -27,5 +27,4 @@ public class JugadaTest {
         assertEquals(c, ju.getCarta());
         assertEquals(j, ju.getJugador());
     }
-
 }

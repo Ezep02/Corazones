@@ -67,6 +67,16 @@ public class Baza {
         return puntos;
     }
 
+    public boolean tieneCorazones(){
+        for (Jugada j : jugadas){
+            if (j.getCarta().getPalo() == Palo.CORAZONES){
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     public List<Jugada> getJugadas(){
         return List.copyOf(jugadas);
     }
